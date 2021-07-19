@@ -15,7 +15,8 @@ license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
 echo "%%%%%%%%%%%%%%%%%%%%%"
 ls -ll $TRAVIS_BUILD_DIR/leanix
 echo "%%%%%%%%%%%%%%%%%%%%%"
-
+cat $TRAVIS_BUILD_DIR/leanix/dependencies.json
+echo "%%%%%%%%%%%%%%%%%%%%%"
 curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${BEARER}" \
