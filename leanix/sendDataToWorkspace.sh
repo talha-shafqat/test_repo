@@ -1,7 +1,5 @@
-echo "test script running"
-pwd
-echo "------------------"
-ls $TRAVIS_BUILD_DIR
+
+
 service_name=$(jq -r .name package.json)
 
 export HOST=${MI_DEV_HOST:-eu.leanix.net}
@@ -12,11 +10,7 @@ BEARER=$(curl -X POST --url https://${HOST}/services/mtm/v1/oauth2/token -u apit
 echo $BEARER
 
 license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
-echo "%%%%%%%%%%%%%%%%%%%%%"
-ls -ll $TRAVIS_BUILD_DIR/leanix
-echo "%%%%%%%%%%%%%%%%%%%%%"
-cat $TRAVIS_BUILD_DIR/leanix/dependencies.json
-echo "%%%%%%%%%%%%%%%%%%%%%"
+
 curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${BEARER}" \
