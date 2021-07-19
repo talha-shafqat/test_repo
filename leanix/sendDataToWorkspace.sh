@@ -21,11 +21,11 @@ curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${BEARER}" \
   -H 'Content-Type: multipart/form-data' \
-  -F manifest=$TRAVIS_BUILD_DIR/lx-manifest.yaml \
-  -F dependencies=$TRAVIS_BUILD_DIR/leanix/dependencies.json \
+  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
+  -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
   -F 'data={
   "version": "1.0.0",
   "stage": "dev",
-  "dependencyManager": "MAVEN"
+  "dependencyManager": "NPM"
 }' \
   https://$HOST/services/cicd-connector/v2/deployment
