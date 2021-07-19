@@ -11,9 +11,9 @@ export SYNC_URL="https://${HOST}/services/integration-api/v1/synchronizationRuns
 BEARER=$(curl -X POST --url https://${HOST}/services/mtm/v1/oauth2/token -u apitoken:${TOKEN} --data grant_type=client_credentials | jq -r '.access_token') 
 echo $BEARER
 
-license-checker --json > $TRAVIS_BUILD_DIR/dependencies.json
+license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
 echo "%%%%%%%%%%%%%%%%%%%%%"
-ls -ll $TRAVIS_BUILD_DIR/
+ls -ll $TRAVIS_BUILD_DIR/leanix
 echo "%%%%%%%%%%%%%%%%%%%%%"
 
 curl -X POST \
@@ -21,7 +21,7 @@ curl -X POST \
   -H "Authorization: Bearer ${BEARER}" \
   -H 'Content-Type: multipart/form-data' \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
-  -F dependencies=@<abosolute path to dependencies file> \
+  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
   -F 'data={
   "version": "1.0.0",
   "stage": "dev",
