@@ -1,0 +1,10 @@
+{
+    "@babel/code-frame@7.14.5": {
+      "licenses": "MIT",
+      "repository": "https://github.com/babel/babel",
+      "publisher": "The Babel Team",
+      "url": "https://babel.dev/team",
+      "path": "/home/travis/build/talha-shafqat/test_repo/node_modules/@babel/code-frame",
+      "licenseFile": "/home/travis/build/talha-shafqat/test_repo/node_modules/@babel/code-frame/LICENSE"
+    }
+}
