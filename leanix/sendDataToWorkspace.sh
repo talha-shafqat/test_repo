@@ -15,12 +15,17 @@ TOKEN=$(curl -X POST --url https://${HOST}/services/mtm/v1/oauth2/token -u apito
 license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
 
 # API call to send the manifest file, dependencies and metadata to workspace
+# Required input data in the API call:
+# Bearer token (provided as a part of header)
+# Absolute path for dependencies.json
+# Absolute path for lx-manifest.yaml
+# version, stage & dependencyManager (hardcoded for this sample code)
 curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${TOKEN}" \
   -H 'Content-Type: multipart/form-data' \
-  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \ # Absolute path to dependencies.json file
-  -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \ # # Absolute path to lx-manifest.yaml file
+  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
+  -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
   -F 'data={
   "version": "1.1.0",
   "stage": "dev",
