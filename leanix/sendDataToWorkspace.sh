@@ -25,8 +25,5 @@ curl -X POST \
   -H "Authorization: Bearer ${TOKEN}" \
   -H 'Content-Type: multipart/form-data' \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
-  -F 'data={
-  "version": "1.1.0",
-  "stage": "dev"
-}' \
+  -F 'data={ "version": "1.0.0", "stage": "dev" }' \
   https://$HOST/services/cicd-connector/v2/deployment
