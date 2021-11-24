@@ -12,7 +12,7 @@ export SYNC_URL="https://${HOST}/services/integration-api/v1/synchronizationRuns
 TOKEN=$(curl -X POST --url https://${HOST}/services/mtm/v1/oauth2/token -u apitoken:${MI_DEV_TOKEN} --data grant_type=client_credentials | jq -r '.access_token') 
 
 # Run license-checker
-license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
+#license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
 
 # API call to send the manifest file, dependencies and metadata to workspace
 # Required input data in the API call:
@@ -24,11 +24,15 @@ curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${TOKEN}" \
   -H 'Content-Type: multipart/form-data' \
-  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
+#  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
+#  -F 'data={
+#  "version": "1.1.0",
+#  "stage": "dev",
+#  "dependencyManager": "NPM"
+#}' \
   -F 'data={
   "version": "1.1.0",
-  "stage": "dev",
-  "dependencyManager": "NPM"
+  "stage": "dev"
 }' \
   https://$HOST/services/cicd-connector/v2/deployment
