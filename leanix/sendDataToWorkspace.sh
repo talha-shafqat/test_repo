@@ -1,5 +1,5 @@
 # If MI_DEV_HOST isn't set in travis, a default value is used
-export HOST=${MI_DEV_HOST:-demo-eu-1.leanix.net}
+export HOST=${MI_DEV_HOST:-eu-4.leanix.net}
 
 # Check if token env variable is set in travis
 if [[ -z "${MI_DEV_TOKEN}" ]]; then
