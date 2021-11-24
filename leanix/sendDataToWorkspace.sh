@@ -24,13 +24,7 @@ curl -X POST \
   -H 'Cache-Control: no-cache' \
   -H "Authorization: Bearer ${TOKEN}" \
   -H 'Content-Type: multipart/form-data' \
-#  -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
-#  -F 'data={
-#  "version": "1.1.0",
-#  "stage": "dev",
-#  "dependencyManager": "NPM"
-#}' \
   -F 'data={
   "version": "1.1.0",
   "stage": "dev"
