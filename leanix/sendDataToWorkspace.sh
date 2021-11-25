@@ -2,7 +2,7 @@
 export HOST=${MI_DEV_HOST:-eu-4.leanix.net}
 
 echo "Which host is it?"
-echo $MI_DEV_HOST
+echo $HOST
 # Check if token env variable is set in travis
 if [[ -z "${MI_DEV_TOKEN}" ]]; then
     echo "Please add your MI workspace token as an env variable 'MI_DEV_TOKEN' in travis."
