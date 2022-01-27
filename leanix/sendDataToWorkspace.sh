@@ -13,6 +13,7 @@ fi
 export SYNC_URL="https://${HOST}/services/integration-api/v1/synchronizationRuns"
 TOKEN=$(curl -X POST --url https://${HOST}/services/mtm/v1/oauth2/token -u apitoken:${MI_DEV_TOKEN} --data grant_type=client_credentials | jq -r '.access_token') 
 
+echo $TOKEN
 # Run license-checker
 #license-checker --json > $TRAVIS_BUILD_DIR/leanix/dependencies.json
 
