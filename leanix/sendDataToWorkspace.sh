@@ -29,6 +29,6 @@ curl -X POST \
   -H 'Content-Type: multipart/form-data' \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
   -F dependencies=@$TRAVIS_BUILD_DIR/leanix/dependencies.json \
-  -F 'data={ "version": "1.0.0", "stage": "dev" }' \
+  -F 'data={ "version": "1.0.0", "stage": "dev", "dependencyManager": "NPM" }' \
   https://$HOST/services/cicd-connector/v2/deployment
 
