@@ -30,3 +30,4 @@ curl -X POST \
   -F manifest=@$TRAVIS_BUILD_DIR/lx-manifest.yaml \
   -F 'data={ "version": "1.0.0", "stage": "dev" }' \
   https://$HOST/services/cicd-connector/v2/deployment
+
